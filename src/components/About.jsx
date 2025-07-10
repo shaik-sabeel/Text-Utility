@@ -1,39 +1,48 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
-export default function About() {
-    const [myStyle, setmyStyle] = useState({
-        color: "black",
-        backgroundColor: "white",
-        padding: "10px",
-        borderRadius: "5px",
-        border: "1px solid black"
-    });
-    const [btnText, setBtnText] = useState("Enable Dark Mode");
+export default function About(props) {
+    // const [myStyle, setmyStyle] = useState({
+    //     color: "black",
+    //     backgroundColor: "white",
+    //     padding: "10px",
+    //     borderRadius: "5px",
+    //     border: "1px solid black"
+    // });
+    // const [btnText, setBtnText] = useState("Enable Dark Mode");
 
-    let toggleButton = () => {
-        if (myStyle.color === "black") {
-            setmyStyle ({ 
-                color: "white",
-                backgroundColor: "black",
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid black"
-            });
-            setBtnText("Enable Light Mode");
-        } else {
-            setmyStyle ({
-                color: "black",
-                backgroundColor: "white",
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid black"
-            });
-            setBtnText("Enable Dark Mode");
-        }
+    // let toggleButton = () => {
+    //     if (myStyle.color === "black") {
+    //         setmyStyle ({ 
+    //             color: "white",
+    //             backgroundColor: "black",
+    //             padding: "10px",
+    //             borderRadius: "5px",
+    //             border: "1px solid black"
+    //         });
+    //         setBtnText("Enable Light Mode");
+    //     } else {
+    //         setmyStyle ({
+    //             color: "black",
+    //             backgroundColor: "white",
+    //             padding: "10px",
+    //             borderRadius: "5px",
+    //             border: "1px solid black"
+    //         });
+    //         setBtnText("Enable Dark Mode");
+    //     }
+    // }
+    let myStyle = {
+      color: props.mode === `dark` ? `white` : `#042743`,
+      backgroundColor: props.mode === `dark` ? `#335774` : `white`,
+      padding: "10px",
+      borderRadius: "5px",
+      border: "1px solid black"
     }
 
     return (
-        <div className="container my-5" style = {myStyle}>
+      
+        <div className="container my-5" >
+          <h1 className="my-3" style={{color: props.mode === `dark` ? `white` : `#042743`}}>About Us</h1>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header">
@@ -71,8 +80,8 @@ export default function About() {
       </div>
     </div>
   </div>
-</div>
-    <button onClick={toggleButton} type="button" className='btn btn-outline-primary' >{btnText}</button>
+  </div>
+    {/* <button onClick={toggleButton} type="button" className='btn btn-outline-primary' >{btnText}</button> */}
     </div>
   )
 }
